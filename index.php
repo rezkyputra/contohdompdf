@@ -116,5 +116,5 @@ $html =  '
 $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'potrait');
 $dompdf->render();
-$dompdf->stream("laporan.pdf");
+$dompdf->stream("laporan-sertifikat.pdf");
 ?>

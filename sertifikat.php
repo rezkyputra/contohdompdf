@@ -1,46 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once("dompdf/autoload.inc.php");
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+$html =  '
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .header {
+            margin: 10px;
+            top: 10px;
+        }
+
+        .image {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .box {
+            margin: 30px;
+        }
+
+        h1 {
+            color: turquoise;
+            font-style: italic;
+            font-size: 45px;
+            margin: 0;
+        }
+
+        table tr td {
+            padding-bottom: 5px;
+        }
+
+        table tr td.padding {
+            padding-bottom: 10px;
+        }
+    </style>
 </head>
 
-<style>
-    body {
-        background-color: white;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .box {
-        margin: 50px;
-    }
-
-    h1 {
-        color: turquoise;
-        font-style: italic;
-        font-size: 45px;
-        margin: 0;
-    }
-
-    table tr td {
-        padding-bottom: 5px;
-    }
-
-    table tr td.padding {
-        padding-bottom: 20px;
-    }
-</style>
-
 <body>
+    <div class="header">
+        <img class="image" src="img/logo2.jpg" alt="">
+    </div>
     <div>
-        <div class="header">
-
-        </div>
         <div class="box">
             <div class="text-center header">
                 <h1 class="header">Sertifikat Wakaf</h1>
@@ -56,7 +68,7 @@
                         <td>__________________________________</td>
                     </tr>
                     <tr>
-                        <td class="padding">Alamatlamat</td>
+                        <td class="padding">Alamat</td>
                         <td class="padding">:</td>
                         <td class="padding">__________________________________</td>
                     </tr>
@@ -96,7 +108,7 @@
             <div class="box">
                 <div class="text-center">
                     <p style="margin-bottom: 75px;"> Diterbitkan di </p>
-                    <p style="margin-bottom: 10px;"> Jakarta,____ _______________ 2020</p>
+                    <p style="margin-bottom: 15px;"> Jakarta,____ _______________ 2020</p>
                     <p>Dokumen ini diterbitkan oleh Bank secara sistem,
                         oleh karenanya tidak memerlukan tanda tangan pejabat bank </p>
                 </div>
@@ -106,4 +118,11 @@
     </div>
 </body>
 
-</html>
+</html>';
+
+
+$dompdf->loadHtml($html);
+$dompdf->setPaper('A4', 'potrait');
+$dompdf->render();
+$dompdf->stream("laporan-sertifikat.pdf");
+?>

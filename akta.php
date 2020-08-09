@@ -16,15 +16,27 @@ $html =  '
     }
 
     .header {
-        margin: 50px;
+        margin: 30px;
         margin-bottom: 10px;
         position: static;
         top: 10px;
     }
 
-    .image {
-        width: 100%;
-        justify-content: center;
+    .float-left{
+        margin: 0px;
+        float: left;
+        width: 150px;
+    }
+
+    .float-right{
+        margin: 0px;
+        float: right;
+        width: 150px;
+    }
+
+    .img-center{
+        width: 170px;
+        margin: 5px;
     }
 
     .text-center {
@@ -94,7 +106,14 @@ $html =  '
 <body>
     <div>
         <div class="header">
-            <img class="image" src="img/logo.jpg" alt="">
+            <img class="float-left" src="img/wakaf.jpg" alt="">
+            <img class="float-right" src="img/mandiri.jpg" alt="">
+        </div>
+        <div style="clear: both;">
+            <p style="text-align: center;">
+
+                <img class="img-center" src="img/bismillah.jpg" alt="">
+            </p>
         </div>
         <div class="box">
             <div class="text-center">

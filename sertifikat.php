@@ -15,7 +15,20 @@ $html =  '
 
         .header {
             margin: 10px;
+            margin-bottom: 20px;
             top: 10px;
+        }
+
+        .float-left{
+            margin: 0px;
+            float: left;
+            width: 150px;
+        }
+
+        .float-right{
+            margin: 0px;
+            float: right;
+            width: 150px;
         }
 
         .image {
@@ -50,9 +63,10 @@ $html =  '
 
 <body>
     <div class="header">
-        <img class="image" src="img/logo2.jpg" alt="">
+        <img class="float-left" src="img/wakaf.jpg" alt="">
+        <img class="float-right" src="img/mandiri.jpg" alt="">
     </div>
-    <div>
+    <div style="clear: both;">
         <div class="box">
             <div class="text-center header">
                 <h1 class="header">Sertifikat Wakaf</h1>
